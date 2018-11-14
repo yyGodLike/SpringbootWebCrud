@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个thymeleaf页面</title>
+</head>
+<body>
+    <h3>你好</h3>
+    <div th:text="${hello}">欢迎你</div>
+    <br/>
+    <div>[[${hello2}]]</div>
+    <div>[(${hello2})]</div>
+
+    <div>
+        <p th:each="name:${names}">[[${name}]]</p>
+    </div>
+
+
+</body>
+</html>
