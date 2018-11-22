@@ -19,7 +19,7 @@ public class LoginController {
         if(!StringUtils.isEmpty(username) && "123".equals(password)){
             //登陆成功
             //将登陆信息保存到session作用域中，后续可以做很多业务处理
-            session.setAttribute("userName", username);
+            session.setAttribute("user", username);
             // 防止F5刷新主界面导致登陆表单重复提交，重定向到主界面
             return "redirect:/main.html";
         }

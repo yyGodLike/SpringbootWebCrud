@@ -24,7 +24,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
 
         //获取登陆成功存放的session值，若为空则需要跳转登陆界面重新登陆，否则直接执行action方法。
-        Object user = httpServletRequest.getSession().getAttribute("userName");
+        Object user = httpServletRequest.getSession().getAttribute("user");
         if(user == null){
             httpServletRequest.setAttribute("errorMsg","没有权限访问，请登录系统");
             httpServletRequest.getRequestDispatcher("/login.html").forward(httpServletRequest,httpServletResponse);
