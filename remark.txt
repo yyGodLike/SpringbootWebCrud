@@ -1,4 +1,4 @@
 JDKVersio：1.7
 SpringbootVersion：1.5.17.RELEASE
 使用SpringBoot内置tomcat容器，bootstrap样式框架，thymeleof模版引擎。
-功能：登陆，员工管理菜单。。。。jjjkkk
+功能：登陆，员工管理菜单。。。。jjjkkkkkkkk
