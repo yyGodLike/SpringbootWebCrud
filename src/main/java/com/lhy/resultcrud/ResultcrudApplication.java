@@ -10,5 +10,8 @@ public class ResultcrudApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ResultcrudApplication.class, args);
+
+
+
     }
 }
