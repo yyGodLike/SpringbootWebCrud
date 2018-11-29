@@ -1,6 +1,7 @@
 package com.lhy.resultcrud.controller;
 
 import com.lhy.resultcrud.dao.DepartmentDao;
+import com.lhy.resultcrud.dao.DepartmentMapper;
 import com.lhy.resultcrud.dao.EmployeeDao;
 import com.lhy.resultcrud.entities.Department;
 import com.lhy.resultcrud.entities.Employee;
@@ -24,6 +25,8 @@ public class EmpController {
     @Autowired
     DepartmentDao departmentDao;
 
+    @Autowired
+    DepartmentMapper departmentMapper;
     /**
      * 打开员工管理界面
      *
@@ -85,5 +88,11 @@ public class EmpController {
     public String deleteEmp(@PathVariable(value = "id") Integer id) {
         employeeDao.delete(id);
         return "redirect:/emp/openEmpView";
+    }
+
+    @ResponseBody
+    @GetMapping("/getDept/{id}")
+    public Department getDept(@PathVariable Integer id){
+        return departmentMapper.getDepartment(id);
     }
 }
