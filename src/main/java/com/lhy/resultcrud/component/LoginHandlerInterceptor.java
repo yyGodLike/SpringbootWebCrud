@@ -14,6 +14,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
 
     /**
      * 在执行action方法执行该方法
+     *
      * @param httpServletRequest
      * @param httpServletResponse
      * @param o
@@ -25,9 +26,9 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
 
         //获取登陆成功存放的session值，若为空则需要跳转登陆界面重新登陆，否则直接执行action方法。
         Object user = httpServletRequest.getSession().getAttribute("user");
-        if(user == null){
-            httpServletRequest.setAttribute("errorMsg","没有权限访问，请登录系统");
-            httpServletRequest.getRequestDispatcher("/login.html").forward(httpServletRequest,httpServletResponse);
+        if (user == null) {
+            httpServletRequest.setAttribute("errorMsg", "没有权限访问，请登录系统");
+            httpServletRequest.getRequestDispatcher("/login.html").forward(httpServletRequest, httpServletResponse);
             //httpServletResponse.sendRedirect("crud/login.html");
             return false;
         }

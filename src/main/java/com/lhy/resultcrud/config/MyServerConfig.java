@@ -11,6 +11,7 @@ import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import java.util.Arrays;
 
 /**
@@ -18,15 +19,16 @@ import java.util.Arrays;
  * 配置嵌入式的servlet容器，也可以通过application.properties文件进行配置。
  */
 @Configuration
-public class MyServerConfig{
+public class MyServerConfig {
 
     /**
      * 注册servlet
+     *
      * @return
      */
     @Bean
-    public ServletRegistrationBean myServlet(){
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyServlet(),"/myServlet");
+    public ServletRegistrationBean myServlet() {
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new MyServlet(), "/myServlet");
         registrationBean.setLoadOnStartup(1);
         return registrationBean;
     }
@@ -34,12 +36,13 @@ public class MyServerConfig{
 
     /**
      * 注册filter
+     *
      * @return
      */
     @Bean
-    public FilterRegistrationBean myFilterRegistrationBean(){
+    public FilterRegistrationBean myFilterRegistrationBean() {
         FilterRegistrationBean registrationBean =
-                    new FilterRegistrationBean();
+                new FilterRegistrationBean();
         //注册filter
         registrationBean.setFilter(new MyFilter());
         //添加filter要过滤的请求URL
@@ -49,19 +52,20 @@ public class MyServerConfig{
 
     /**
      * 注册Listener
+     *
      * @return
      */
     @Bean
-    public ServletListenerRegistrationBean myServletListenerRegistrationBean(){
+    public ServletListenerRegistrationBean myServletListenerRegistrationBean() {
 
         ServletListenerRegistrationBean<MyListener> servletListenerRegistrationBean =
-                    new ServletListenerRegistrationBean<>(new MyListener());
+                new ServletListenerRegistrationBean<>(new MyListener());
         return servletListenerRegistrationBean;
     }
 
 
     @Bean
-    public EmbeddedServletContainerCustomizer containerCustomizer(){
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
 
         return new EmbeddedServletContainerCustomizer() {
             @Override

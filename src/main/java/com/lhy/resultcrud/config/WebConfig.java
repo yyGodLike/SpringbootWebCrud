@@ -18,17 +18,15 @@ public class WebConfig {
 
 
     @Bean
-    public WebMvcConfigurer webMvcConfigurer(){
+    public WebMvcConfigurer webMvcConfigurer() {
         return new MyWebMvcConfig();
     }
 
 
     @Bean
-    public LocaleResolver localeResolver(){
+    public LocaleResolver localeResolver() {
         return new MyLocaleResolver();
     }
-
-
 
 
 }

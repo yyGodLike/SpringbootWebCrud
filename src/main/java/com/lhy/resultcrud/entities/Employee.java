@@ -4,20 +4,21 @@ import java.util.Date;
 
 public class Employee {
 
-	private Integer id;
+    private Long id;
     private String lastName;
 
     private String email;
     //1 male, 0 female
     private Integer gender;
+    private Long dId;
     private Department department;
     private Date birth;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,7 +61,16 @@ public class Employee {
     public void setBirth(Date birth) {
         this.birth = birth;
     }
-    public Employee(Integer id, String lastName, String email, Integer gender,
+
+    public Long getdId() {
+        return dId;
+    }
+
+    public void setdId(Long dId) {
+        this.dId = dId;
+    }
+
+    public Employee(Long id, String lastName, String email, Integer gender,
                     Department department) {
         super();
         this.id = id;
@@ -74,17 +84,4 @@ public class Employee {
     public Employee() {
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", gender=" + gender +
-                ", department=" + department +
-                ", birth=" + birth +
-                '}';
-    }
-	
-	
 }

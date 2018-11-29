@@ -15,25 +15,25 @@ import java.util.Map;
 public class SuccessController {
 
     @RequestMapping(value = "helloSuccess")
-    public String helloSuccess(Map map){
+    public String helloSuccess(Map map) {
 
-        map.put("hello" , "欢迎你进入thymeleaf的第一个界面");
-        map.put("hello2" , "<h>你好</h3>");
-        map.put("names" , Arrays.asList("张三", "李四", "王五"));
+        map.put("hello", "欢迎你进入thymeleaf的第一个界面");
+        map.put("hello2", "<h>你好</h3>");
+        map.put("names", Arrays.asList("张三", "李四", "王五"));
 
         return "success";
     }
 
     @ResponseBody
     @RequestMapping(value = "/tsEroor")
-    public Map tsEroor(String name){
+    public Map tsEroor(String name) {
         System.out.println("a".equals(name));
-        if("a".equals(name)){
+        if ("a".equals(name)) {
             throw new UserException("用户名错误");
         }
         System.out.println(name);
         Map map = new HashMap();
-        map.put("info","您好");
+        map.put("info", "您好");
 
         return map;
     }

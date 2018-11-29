@@ -16,18 +16,19 @@ public class MyExceptionHandler {
 
     /**
      * 处理user相关的异常
+     *
      * @param e
      * @return
      */
     @ExceptionHandler(UserException.class)
-    public String handleUserException(Exception e, HttpServletRequest request){
+    public String handleUserException(Exception e, HttpServletRequest request) {
 
         //一定要传入错误状态码，4xx或5xx，提供给DefaultErrorViewResolver解析，否则不会进入定制的异常页面的解析流程。
-        request.setAttribute("javax.servlet.error.status_code",500);
+        request.setAttribute("javax.servlet.error.status_code", 500);
 
         Map map = new HashMap();
-        map.put("code","userNotExist");
-        map.put("message",e.getMessage());
+        map.put("code", "userNotExist");
+        map.put("message", e.getMessage());
 
         //将异常处理方法要返回给前端的异常信息放入request域中。
         // 方便自定义的getErrorAttributes方法获取一并返回给前端。
